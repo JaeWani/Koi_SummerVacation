@@ -8,9 +8,10 @@ public class Player1Movement : MonoBehaviour
     private float moveSpeed = 5.0f;
     private Vector3 moveDirection;
 
+
     private void Awake()
     {
-   
+        
     }
 
     private void Update()
@@ -21,19 +22,19 @@ public class Player1Movement : MonoBehaviour
         {
             moveDirection += Vector3.up;
         }
-        else if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             moveDirection += Vector3.down;
         }
-        else if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             moveDirection += Vector3.left;
         }
-        else if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             moveDirection += Vector3.right;
         }
 
-        transform.position += moveDirection * moveSpeed * Time.deltaTime;
+        transform.position += moveDirection.normalized * moveSpeed * Time.deltaTime;
     }
 }

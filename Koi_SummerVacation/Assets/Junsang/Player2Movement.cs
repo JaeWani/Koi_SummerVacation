@@ -10,7 +10,7 @@ public class Player2Movement : MonoBehaviour
 
     private void Awake()
     {
-        moveDirection = Vector3.zero;
+        
     }
 
     private void Update()
@@ -21,19 +21,19 @@ public class Player2Movement : MonoBehaviour
         {
             moveDirection += Vector3.up;
         }
-        else if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             moveDirection += Vector3.down;
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             moveDirection += Vector3.left;
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             moveDirection += Vector3.right;
         }
 
-        transform.position += moveDirection * moveSpeed * Time.deltaTime;
+        transform.position += moveDirection.normalized * moveSpeed * Time.deltaTime;
     }
 }
