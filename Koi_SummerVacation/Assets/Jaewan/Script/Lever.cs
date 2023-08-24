@@ -11,13 +11,13 @@ public class Lever : Puzzle
     protected override void Work()
     {
         base.Work();
-        Door.transform.DOMove(OpenPos, 3f);
+        Door.transform.DOLocalMove(OpenPos, 3f);
         Debug.Log("작동");
     }
     protected override void Off()
     {
         base.Off();
-        Door.transform.DOMove(ClosePos, 3f);
+        Door.transform.DOLocalMove(ClosePos, 3f);
         Debug.Log("해제");
     }
     private void OnCollisionEnter2D(Collision2D other)
